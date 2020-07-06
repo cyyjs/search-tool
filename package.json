@@ -1,0 +1,193 @@
+{
+  "name": "search",
+  "version": "0.1.0",
+  "description": "快捷搜索工具",
+  "main": "./app/main.js",
+  "scripts": {
+    "dev": "node build/dev-runner",
+    "start": "electron app/main",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "bd": "yarn build && electron-builder",
+    "bdm": "yarn build && electron-builder -m",
+    "bdw": "yarn build && electron-builder -w",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-vue": "^6.2.2",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "babel-eslint": "^10.1.0",
+    "chalk": "^4.1.0",
+    "conventional-changelog-cli": "^2.0.34",
+    "cz-emoji": "^1.2.1",
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-vue-standard": "^0.0.6",
+    "husky": "^4.2.5",
+    "sass": "^1.26.9",
+    "sass-loader": "^9.0.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "license": "MIT",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "browser": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "build": {
+    "productName": "search",
+    "appId": "top.alibt.search",
+    "directories": {
+      "output": "build/dist"
+    },
+    "files": [
+      "dist/**/*",
+      "app/**/*"
+    ],
+    "extraResources": "public",
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "build/icons/icon.icns"
+    },
+    "win": {
+      "icon": "build/icons/icon.ico"
+    },
+    "linux": {
+      "icon": "build/icons"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    },
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "\t🌟",
+          "code": ":star2:",
+          "description": "\tA new feature",
+          "name": "feat"
+        },
+        {
+          "emoji": "\t🐞",
+          "code": ":beetle:",
+          "description": "\tA bug fix",
+          "name": "fix"
+        },
+        {
+          "emoji": "\t🎨",
+          "code": ":art:",
+          "description": "\tNeither fixes a bug nor adds a feature",
+          "name": "refactor"
+        },
+        {
+          "emoji": "\t🚓",
+          "code": ":police_car:",
+          "description": "\t Testing improved with new or fixed tests",
+          "name": "test"
+        },
+        {
+          "emoji": "\t🔩",
+          "code": ":nut_and_bolt:",
+          "description": "\tDoesn't modify src or test files",
+          "name": "chore"
+        },
+        {
+          "emoji": "\t💰",
+          "code": ":moneybag:",
+          "description": "\tImproves performance with this change",
+          "name": "perf"
+        },
+        {
+          "emoji": "\t🚥",
+          "code": ":traffic_light:",
+          "description": "\tCI config files and scripts",
+          "name": "ci"
+        },
+        {
+          "emoji": "\t♻️",
+          "code": ":recycle:",
+          "description": "\tOptimize workflow",
+          "name": "workflow"
+        },
+        {
+          "emoji": "\t🚀",
+          "code": ":rocket:",
+          "description": "\tBuild system config or external dependencies",
+          "name": "build"
+        },
+        {
+          "emoji": "\t📚",
+          "code": ":books:",
+          "description": "\tDocumentation change",
+          "name": "docs"
+        },
+        {
+          "emoji": "\t💊",
+          "code": ":pill:",
+          "description": "\tReverts a previous commit",
+          "name": "revert"
+        },
+        {
+          "emoji": "\t🎉",
+          "code": ":tada:",
+          "description": "\tInitialize a new package.",
+          "name": "init"
+        }
+      ]
+    }
+  }
+}
