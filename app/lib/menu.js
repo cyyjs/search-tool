@@ -117,11 +117,6 @@ app.on('ready', () => {
     { label: '搜索', accelerator: 'CmdOrCtrl+X'},
     { label: '退出', accelerator: 'Cmd+Q', click: () => {  app.exit() } }
   ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
   appIcon.setContextMenu(contextMenu)
 })
 
